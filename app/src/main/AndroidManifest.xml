@@ -17,8 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddSiswaActivity" />
-        <activity android:name=".ActionActivity"></activity>
+        <activity android:name=".AddSiswaActivity" android:theme="@style/AppTheme.SlideToBack"/>
+        <activity android:name=".ActionActivity" android:theme="@style/AppTheme.SlideToBack"/>
     </application>
 
 </manifest>

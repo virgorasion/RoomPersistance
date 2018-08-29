@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide;
 import com.nguyenhoanglam.imagepicker.model.Config;
 import com.nguyenhoanglam.imagepicker.model.Image;
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 
 import java.util.ArrayList;
 
@@ -28,6 +30,8 @@ public class AddSiswaActivity extends AppCompatActivity {
     ImageView inputFoto;
     @BindView(R.id.btnSubmit)
     Button btnSubmit;
+
+    private SlidrInterface slidrInterface;
     private SiswaModel siswaModel;
     private ArrayList<Image> imageArrayList = new ArrayList<>();
 
@@ -36,6 +40,8 @@ public class AddSiswaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_siswa);
         ButterKnife.bind(this);
+
+        slidrInterface = Slidr.attach(this);
     }
 
     @OnClick(R.id.inputFoto)

@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide;
 import com.nguyenhoanglam.imagepicker.model.Config;
 import com.nguyenhoanglam.imagepicker.model.Image;
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 
 import java.util.ArrayList;
 
@@ -31,6 +33,7 @@ public class ActionActivity extends AppCompatActivity {
     @BindView(R.id.btnDelete)
     Button btnDelete;
 
+    private SlidrInterface slidrInterface;
     private SiswaModel siswaModel;
     private ArrayList<Image> imageArrayList = new ArrayList<>();
 
@@ -39,6 +42,9 @@ public class ActionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action);
         ButterKnife.bind(this);
+        int primary = getResources().getColor(R.color.colorPrimary);
+        int secondary = getResources().getColor(R.color.colorPrimaryDark);
+        slidrInterface = Slidr.attach(this, primary, secondary);
 
         Bundle bundle = getIntent().getExtras();
         siswaModel = bundle.getParcelable(MainAdapter.EXTRA_SISWA);
