@@ -16,7 +16,7 @@ import java.util.List;
 @Dao
 public interface SiswaDAO {
 
-    @Query("SELECT * FROM SiswaModel")
+    @Query("SELECT * FROM SiswaModel ORDER BY id DESC")
     List<SiswaModel> getAll();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

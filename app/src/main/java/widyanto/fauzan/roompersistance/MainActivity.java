@@ -40,4 +40,10 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked() {
         startActivity(new Intent(MainActivity.this, AddSiswaActivity.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
 }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.nguyenhoanglam.imagepicker.model.Config;
@@ -42,6 +43,8 @@ public class AddSiswaActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         slidrInterface = Slidr.attach(this);
+
+        Toast.makeText(this, "Slide untuk kembali", Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.inputFoto)
@@ -71,21 +74,26 @@ public class AddSiswaActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnSubmit)
     public void onBtnSubmitClicked() {
+
+        //Melakukan pengecekan form agar tidak boleh kosong
         if (!inputNama.getText().toString().isEmpty()
                 && !inputAlamat.getText().toString().isEmpty()
                 && !imageArrayList.isEmpty()) {
             siswaModel = new SiswaModel();
 
+            //Mengisi form
             siswaModel.setNama(inputNama.getText().toString());
             siswaModel.setAlamat(inputAlamat.getText().toString());
             siswaModel.setPathFoto(imageArrayList.get(0).getPath().toString());
+            //input ke database
             SiswaApp.db.userDao().insertAll(siswaModel);
 
-            // TODO : Mungkin Ini Salah
+            //kembali ke activity utama
             Intent i = new Intent(AddSiswaActivity.this, MainActivity.class);
             i.addFlags(i.FLAG_ACTIVITY_NEW_TASK);
             i.addFlags(i.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
+            finish();
         }
     }
 }

@@ -15,6 +15,7 @@ import android.os.Parcelable;
 public class SiswaModel implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private int id;
 
     @ColumnInfo(name = "nama")
